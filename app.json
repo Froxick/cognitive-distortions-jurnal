@@ -1,6 +1,18 @@
 {
   "expo": {
+    "plugins": [
+      [
+        
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ],
     "name": "CogTracker",
+    "scheme": "cogt",
     "slug": "CogTracker",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,17 +25,45 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.CogTracker",
+      "infoPlist": {
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": ["cogt"]
+          }
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "cogt",
+              "host": "oauthredirect",  
+              "pathPrefix": "/@froxick/CogTracker/oauthredirect"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ],
+      "edgeToEdgeEnabled": true,
+      "package": "com.anonymous.CogTracker"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a251c2a0-b490-4e41-b4ce-7921d41dd361"
+      }
+    },
+    "owner": "froxick"
   }
 }
